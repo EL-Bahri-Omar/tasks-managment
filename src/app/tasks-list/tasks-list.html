@@ -1,0 +1,36 @@
+<h1>Liste des tâches</h1>
+<button class="btn btn-primary" (click)="showAddTask()">Ajouter une tâche</button>
+
+@if (action === "add") {
+<app-tasks-add></app-tasks-add>
+}
+@if (action === "edit" && taskToEdit) {
+<app-edit-task [task]="taskToEdit" (hideEdit)="hideEditTask()"></app-edit-task>
+}
+@if (action === "delete" && taskToDelete) {
+<app-delete-task [task]="taskToDelete" (hideDelete)="hideDeleteTask()"></app-delete-task>
+}
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tâche</th>
+      <th scope="col">Etat</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (task of tasks; track task.id) {
+    <tr>
+      <th scope="row">{{ task.id }}</th>
+      <td>{{ task.taskName }}</td>
+      <td>{{ task.taskStatus }}</td>
+      <td>
+        <button class="btn btn-success me-2" (click)="showEditTask(task.id)">Editer</button>
+        <button class="btn btn-danger" (click)="showDeleteTask(task.id)">Supprimer</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

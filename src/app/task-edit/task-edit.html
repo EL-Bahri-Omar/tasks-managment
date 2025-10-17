@@ -1,0 +1,19 @@
+<section class="taskEdit">
+    <form (ngSubmit)="editTask()">
+        <div class="mb-3">
+            <label for="editTaskInput" class="form-label">Nom de la tâche</label>
+            <input type="text" id="editTaskInput" class="form-control" [(ngModel)]="taskName" name="taskName">
+        </div>
+
+        <div class="mb-3">
+            <label for="editTaskState" class="form-label">État</label>
+            <select id="editTaskState" class="form-select" [(ngModel)]="taskStatus" name="taskStatus">
+                <option value="pending">Pending</option>
+                <option value="done">Done</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary me-2">Enregistrer</button>
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+    </form>
+</section>

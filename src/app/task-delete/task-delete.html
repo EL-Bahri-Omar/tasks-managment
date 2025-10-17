@@ -1,0 +1,14 @@
+<section class="taskDelete">
+    <div class="card border-danger">
+        <div class="card-header bg-danger text-white">
+            <h5>Confirmation de suppression</h5>
+        </div>
+        <div class="card-body">
+            <p>Êtes-vous sûr de vouloir supprimer la tâche : <br><strong>{{ task.taskName }}</strong> ?</p>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-danger me-2" (click)="deleteTask()">Supprimer</button>
+            <button class="btn btn-secondary" (click)="cancel()">Annuler</button>
+        </div>
+    </div>
+</section>
